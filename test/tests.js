@@ -3,7 +3,7 @@ const expect = chai.expect
 
 numbers = {0:"zero",1:"one",2:"two",3:"three",4:"four",5:"five",6:"six",7:"seven",8:"eight",9:"nine",10:"ten",11:"eleven",12:"twelve",13:"thirteen",14:"fourteen",
 15:"fifteen",16:"sixteen",17:"seventeen",18:"eighteen",19:"nineteen",20:"twenty",30:"thirty",40:"forty",50:"fifty",60:"sixty",
-70:"seventy",80:"eighty",90:"ninety",100:"hundred",1000:"thousand",1_000_000_000:"million",1_000_000_000_000:"billion",1_000_000_000_000_000:"trillion"}
+70:"seventy",80:"eighty",90:"ninety",100:"hundred",1000:"thousand",1_000_000:"million",1_000_000_000:"billion",1_000_000_000_000:"trillion"}
 
 
 
@@ -136,13 +136,39 @@ describe("All tests for problem 1",function(){
             expect(say(330001)).to.equal("three hundred thirty thousand and one")
         })
 
-        it("test for 330003",function(){    
+        it("test for 303003",function(){    
             expect(say(303003)).to.equal("three hundred and three thousand and three")
         })
     })
 
   
 
+    })
+
+
+    describe("tests for millions 1_000_000 - 999_999_999",function(){
+        it("test for 1_000_000",function(){
+            expect(say(1_000_000)).to.equal("one million")
+        })
+
+        it("test for 1_032_000",function(){
+            expect(say(1_320_000)).to.equal("one million three hundred twenty thousand")
+        })
+
+
+        it("test for 1_032_012",function(){
+            expect(say(1_320_012)).to.equal("one million three hundred twenty thousand twelve")
+        })
+
+        it("test for 3_032_002",function(){
+            expect(say(3_320_002)).to.equal("three million three hundred twenty thousand and two")
+        })
+        it("test for 303_303_303",function(){
+            expect(say(303_303_303)).to.equal("three hundred and three million three hundred and three thousand three hundred and three")
+        })
+        it("test for 333_333_333",function(){
+            expect(say(333_333_333)).to.equal("three hundred thirty-three million three hundred thirty-three thousand three hundred thirty-three")
+        })
     })
 
 })
