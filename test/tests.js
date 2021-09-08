@@ -39,7 +39,7 @@ describe("All tests for problem 1",function(){
                     continue
                 }
                 it(`test for ${nr}`,function(){
-                    expect(say(nr)).to.equal(numbers[Math.floor(nr/10)] + "-" + numbers[nr%10])
+                    expect(say(nr)).to.equal(numbers[Math.floor(nr/10) * 10] + "-" + numbers[nr%10])
                 })
             }
         })
@@ -57,7 +57,21 @@ describe("All tests for problem 1",function(){
                 expect(say(200)).to.equal("two hundred")
             })
         })
-   
+        describe("tests for hundreds not divisibile by 100",function(){
+            describe("tests for hundreds with no zero on tens",function(){
+                it("tes for 134",function(){
+                    expect(say(134)).to.equal("one hundred thirty-four")
+                })
+                it("tes for 556",function(){
+                    expect(say(556)).to.equal("five hundred fifty-six")
+                })
+
+                it("tes for 114",function(){
+                    expect(say(114)).to.equal("one hundred fourteen")
+                })
+
+            })
+        })
  
     })
 })
