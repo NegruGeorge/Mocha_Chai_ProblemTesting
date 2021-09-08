@@ -121,7 +121,27 @@ describe("All tests for problem 1",function(){
         })
 
     })
+    
 
+    describe("test for numbers with the ones that have for last tens and hundred order 0 and units 1-9",function(){
+        it("test for 1001",function(){
+            expect(say(1001)).to.equal("one thousand and one")
+        })
+
+        it("test for 30001",function(){
+            expect(say(30001)).to.equal("thirty thousand and one")
+        })
+
+        it("test for 330001",function(){
+            expect(say(330001)).to.equal("three hundred thirty thousand and one")
+        })
+
+        it("test for 330003",function(){    
+            expect(say(303003)).to.equal("three hundred and three thousand and three")
+        })
+    })
+
+  
 
     })
 

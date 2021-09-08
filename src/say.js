@@ -20,9 +20,15 @@ function checkCategory(category){
 
 
 
-function sayMaxHundreds(number)
+function sayMaxHundreds(number,order)
 {
-    
+    // we need order because we want to know the numbers that have for last tens and hundred order 0 and units 1-9
+    if(order === 1)
+    {
+        if(number>=1 && number <=9)
+            return "and " + numbers[number] 
+    }
+
     if(number>=0 && number <=19){
         return numbers[number]
     }
@@ -60,7 +66,7 @@ function say(number) {
     //1902  ->1   902   10^3    4%3 = 1
     //190 200 000  -> 190, 200, 000    10^8    9%3 = 0
     if(number >=0 && number <=999){
-        return sayMaxHundreds(number)
+        return sayMaxHundreds(number,0)
     }
     else{
       
@@ -74,7 +80,7 @@ function say(number) {
             if(order===0){
                 order =3
             }
-            console.log(Math.floor(number / 10**(length - order)))
+            // console.log(Math.floor(number / 10**(length - order)))
             
 
             fullNr = fullNr +sayMaxHundreds(Math.floor(number / 10**(length - order))) + " " + numbers[checkCategory(category)]+ " "
@@ -83,7 +89,7 @@ function say(number) {
         }
 
         if(number !==0){
-            fullNr = fullNr+ sayMaxHundreds(number)
+            fullNr = fullNr+ sayMaxHundreds(number,1)
         }
         else{
             fullNr = fullNr.trim()
