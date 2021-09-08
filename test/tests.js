@@ -43,8 +43,22 @@ describe("All tests for problem 1",function(){
                 })
             }
         })
-    
+        
 
     })
+    describe("Tests for 100-999 numbers",function(){
+        describe("Tests for hundreds divisible by 100",function(){
+            it("test for 100",function(){
 
+                expect(say(100)).to.equal("one hundred")
+            })
+            it("test for 200",function(){
+
+                expect(say(200)).to.equal("two hundred")
+            })
+        })
+   
+ 
+    })
 })
+
