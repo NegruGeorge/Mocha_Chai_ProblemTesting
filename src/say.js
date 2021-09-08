@@ -12,7 +12,7 @@ function checkCategory(category){
     else if (category>=1_000_000_000 && category < 1_000_000_000_000)
         return 1_000_000_000
     else if(category>=1_000_000_000_000 && category<1_000_000_000_000_000)
-        return 100_000_000_000
+        return 1_000_000_000_000
 
     else
         return "To big of a number"
