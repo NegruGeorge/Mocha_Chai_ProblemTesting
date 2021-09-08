@@ -60,7 +60,17 @@ function sayMaxHundreds(number,order)
 
 
 
-function say(number) {
+function say(number=-1) {
+    if(number ===-1)
+    {
+        return "wrong input"
+    }
+    if(typeof(number) ==="string" || number<0){
+        return "wrong input"
+    }
+    if(number>999_999_999_999_999 || number%1!==0){
+        return "wrong input"
+    }
 
     //19020 -> 19 + 020  10^4   5%3 = 2
     //1902  ->1   902   10^3    4%3 = 1

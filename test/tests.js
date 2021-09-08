@@ -198,8 +198,29 @@ describe("All tests for problem 1",function(){
         })
     })
 
+    describe("tests for another input other than integer numbers",function(){
+        it("test for nothing",function(){
+            expect(say()).to.equal("wrong input")
+        })
 
-    
+        it("test for string",function(){
+            expect(say("sdfasf")).to.equal("wrong input")
+        })
+        it("test for negative number",function(){
+            expect(say("-20")).to.equal("wrong input")
+        })
+        it("test for blank space",function(){
+            expect(say("")).to.equal("wrong input")
+        })
+        it("test for float positive numbers",function(){
+            expect(say(10.3)).to.equal("wrong input")
+        })
+
+        it("test for float integer larger than trillions",function(){
+            expect(say(1_000_000_000_000_000)).to.equal("wrong input")
+        })
+    })
+
 
 })
 
