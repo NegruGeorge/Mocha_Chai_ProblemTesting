@@ -71,6 +71,14 @@ describe("All tests for problem 1",function(){
                 })
 
             })
+            describe("test for hundreds with zero on tens and add AND",function(){
+                it("test for 104",function(){
+                    expect(say(104)).to.equal("one hundred and four");
+                })
+                it("test for 405",function(){
+                    expect(say(405)).to.equal("four hundred and five");
+                })
+            })
         })
  
     })

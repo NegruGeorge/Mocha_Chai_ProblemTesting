@@ -32,7 +32,9 @@ function say(number) {
         {
             return say(number - number%100) + " " + say(number%100)
         }
-        
+        else{
+            return say(number - number%100) + " and "+ numbers[number%10]
+        }
     }
   
 }
