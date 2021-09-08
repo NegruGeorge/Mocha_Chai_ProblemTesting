@@ -6,11 +6,15 @@ numbers = {0:"zero",1:"one",2:"two",3:"three",4:"four",5:"five",6:"six",7:"seven
 
 function say(number) {
 
-    if(number>=0 && number <=19)
-    {
+    if(number>=0 && number <=19){
         return numbers[number]
     }
-   
+    else if(number>=20 && number<=99){
+        if(number%10 ===0){
+            return numbers[number]
+        }
+    }
+  
 }
 
 module.exports = {say}

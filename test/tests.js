@@ -23,4 +23,17 @@ describe("All tests for problem 1",function(){
         }
 
     })
+
+    describe("Tests for 20-99 numbers",function(){
+        describe("Tests for Tens divisible by 10",function(){
+            for(let nr=20;nr<=90;nr+=10)
+            {
+                it(`test for ${nr}`,function(){
+                    expect(say(nr)).to.equal(numbers[nr])
+                })
+            }
+        })
+     
+    })
+
 })
