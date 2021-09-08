@@ -171,5 +171,18 @@ describe("All tests for problem 1",function(){
         })
     })
 
+
+    describe("tests for millions 1_000_000 - 999_999_999",function(){
+        it("test for 333_333_333_333",function(){
+            expect(say(333_333_333_333)).to.equal("three hundred thirty-three billion three hundred thirty-three million three hundred thirty-three thousand three hundred thirty-three")
+        })
+        it("test for 303_303_303_303",function(){
+            expect(say(303_303_303_303)).to.equal("three hundred and three billion three hundred and three million three hundred and three thousand three hundred and three")
+        })
+
+        it("test for 3_303_303_312",function(){
+            expect(say(3_303_303_312)).to.equal("three billion three hundred and three million three hundred and three thousand three hundred twelve")
+        })
+    })
 })
 
