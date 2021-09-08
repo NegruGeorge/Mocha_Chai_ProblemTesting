@@ -33,7 +33,18 @@ describe("All tests for problem 1",function(){
                 })
             }
         })
-     
+        describe("Tests for Tens non divisible by 10",function(){
+            for(let nr=21;nr<=99;nr++){
+                if(nr%10===0){
+                    continue
+                }
+                it(`test for ${nr}`,function(){
+                    expect(say(nr)).to.equal(numbers[Math.floor(nr/10)] + "-" + numbers[nr%10])
+                })
+            }
+        })
+    
+
     })
 
 })

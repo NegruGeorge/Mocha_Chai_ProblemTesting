@@ -13,6 +13,11 @@ function say(number) {
         if(number%10 ===0){
             return numbers[number]
         }
+        else{
+            tens = Math.floor(number/10)
+            uni = number%10;
+            return numbers[tens]+"-"+numbers[uni]
+        }
     }
   
 }
