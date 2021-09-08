@@ -82,5 +82,48 @@ describe("All tests for problem 1",function(){
         })
  
     })
+
+    describe("tests for hundreds 1_000 - 999_999",function(){
+    describe("test for numbers without the ones that have for last tens and hundred order 0 and units 1-9",function(){
+        it("test for 1000",function(){
+            expect(say(1000)).to.equal("one thousand")
+        })
+        it("test for 10000",function(){
+            expect(say(10000)).to.equal("ten thousand")
+        })
+        it("test for 300000",function(){
+            expect(say(300000)).to.equal("three hundred thousand")
+        })
+        it("test for 303303",function(){
+            expect(say(303303)).to.equal("three hundred and three thousand three hundred and three")
+        })
+
+        it("test for 333303",function(){
+            expect(say(333303)).to.equal("three hundred thirty-three thousand three hundred and three")
+        })
+        it("test for 333333",function(){
+            expect(say(333333)).to.equal("three hundred thirty-three thousand three hundred thirty-three")
+        })
+
+        it("test for 333000",function(){
+            expect(say(333000)).to.equal("three hundred thirty-three thousand")
+        })
+
+        it("test for 330000",function(){
+            expect(say(330000)).to.equal("three hundred thirty thousand")
+        })
+
+        it("test for 30000",function(){
+            expect(say(30000)).to.equal("thirty thousand")
+        })
+        it("test for 33000",function(){
+            expect(say(33000)).to.equal("thirty-three thousand")
+        })
+
+    })
+
+
+    })
+
 })
 

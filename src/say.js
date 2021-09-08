@@ -4,11 +4,25 @@ numbers = {0:"zero",1:"one",2:"two",3:"three",4:"four",5:"five",6:"six",7:"seven
 
 
 
+function checkCategory(category){
+    if(category>=1000 && category<1_000_000)
+        return 1_000
+    else if(category >=1_000_000 && category <1_000_000_000)
+        return 1_000_000
+    else if (category>1_000_000_000 && category <= 1_000_000_000_000)
+        return 1_000_000_000
+    else if(category>1_000_000_000_000 && category<= 1_000_000_000_000_000)
+        return 100_000_000_000
+
+    else
+        return "To big of a number"
+}
 
 
 
-function say(number) {
-
+function sayMaxHundreds(number)
+{
+    
     if(number>=0 && number <=19){
         return numbers[number]
     }
@@ -35,6 +49,46 @@ function say(number) {
         else{
             return say(number - number%100) + " and "+ numbers[number%10]
         }
+    }
+}
+
+
+
+function say(number) {
+
+    //19020 -> 19 + 020  10^4   5%3 = 2
+    //1902  ->1   902   10^3    4%3 = 1
+    //190 200 000  -> 190, 200, 000    10^8    9%3 = 0
+    if(number >=0 && number <=999){
+        return sayMaxHundreds(number)
+    }
+    else{
+      
+        // if we have 1 we have 1 hundred, 2-> 10 hundreds, 0-> 100 hundreds
+        let fullNr = ""
+        while(number>=1000)
+        {   let numberStr = number.toString();
+            let length = numberStr.length;
+            category = 10**(length-1);
+            order = length % 3;
+            if(order===0){
+                order =3
+            }
+            console.log(Math.floor(number / 10**(length - order)))
+            
+
+            fullNr = fullNr +sayMaxHundreds(Math.floor(number / 10**(length - order))) + " " + numbers[checkCategory(category)]+ " "
+
+            number = number% 10**(length-order)
+        }
+
+        if(number !==0){
+            fullNr = fullNr+ sayMaxHundreds(number)
+        }
+        else{
+            fullNr = fullNr.trim()
+        }
+        return fullNr
     }
   
 }
