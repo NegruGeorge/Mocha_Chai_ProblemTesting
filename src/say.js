@@ -6,9 +6,9 @@ numbers = {0:"zero",1:"one",2:"two",3:"three",4:"four",5:"five",6:"six",7:"seven
 
 function say(number) {
 
-    if(number ===0)
+    if(number>=0 && number <=19)
     {
-        return "zero";
+        return numbers[number]
     }
    
 }
