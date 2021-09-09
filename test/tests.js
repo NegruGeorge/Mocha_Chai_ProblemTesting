@@ -204,11 +204,11 @@ describe("All tests for problem 1",function(){
 
     describe("tests for another input other than integer numbers",function(){
         it("test for nothing",function(){
-            expect(say()).to.equal("wrong input")
+            expect(say()).to.throw("wrong input: []");
         })
 
         it("test for string",function(){
-            expect(say("sdfasf")).to.equal("wrong input")
+            expect(say("sdfasf")).to.throw("wrong input: [sdfasf]");
         })
         it("test for negative number",function(){
             expect(say("-20")).to.equal("wrong input")
