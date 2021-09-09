@@ -1,7 +1,20 @@
+const bn = require('bn.js')
+
 numbers = {0:"zero",1:"one",2:"two",3:"three",4:"four",5:"five",6:"six",7:"seven",8:"eight",9:"nine",10:"ten",11:"eleven",12:"twelve",13:"thirteen",14:"fourteen",
 15:"fifteen",16:"sixteen",17:"seventeen",18:"eighteen",19:"nineteen",20:"twenty",30:"thirty",40:"forty",50:"fifty",60:"sixty",
 70:"seventy",80:"eighty",90:"ninety",100:"hundred",1000:"thousand",1_000_000:"million",1_000_000_000:"billion",1_000_000_000_000:"trillion"}
 
+
+// let nr = '123456'
+// console.log(nr.substring(2,nr.length))
+               
+// let a = new bn('99999999999999999')
+
+// let b = new bn('10')
+// console.log(a.toString())
+// console.log((a.div(b)).toString())
+
+// console.log("2000000000000000001".length)
 
 
 function checkCategory(category){
@@ -48,7 +61,7 @@ function sayMaxHundreds(number,order)
             
             return numbers[hundred] + " " + numbers[100]
         }
-        else if( number %100 - number%10    !==0)
+        else if( number %100 - number%10!==0)
         {
             return say(number - number%100) + " " + say(number%100)
         }
@@ -68,7 +81,8 @@ function say(number=-1) {
     if(typeof(number) ==="string" || number<0){
         return "wrong input"
     }
-    if(number>999_999_999_999_999 || number%1!==0){
+    if(number>=1_000_000_000_000_000_000 || number%1!==0){
+  
         return "wrong input"
     }
 
@@ -80,8 +94,38 @@ function say(number=-1) {
     }
     else{
       
+       
         // if we have 1 we have 1 hundred, 2-> 10 hundreds, 0-> 100 hundreds
         let fullNr = ""
+
+        if(number > 999_999_999_999_999)
+        {
+
+            numberStr = number.toString();
+            maxLength = 15;
+            let limit = numberStr.length - maxLength;
+            // max length = 18
+            if(numberStr.length > 18){
+                return "wrong input"
+            }
+            else if(typeof(number)!=="object"){
+                return "wring input"
+            }
+            else{
+                
+                let thousandTrillion = numberStr.substring(0,limit);
+                // console.log(thousandTrillion)
+
+                fullNr = fullNr + sayMaxHundreds(parseInt(thousandTrillion)) + " thousand " 
+            }
+            // console.log("//" + numberStr)
+            // console.log(limit)
+            numberStr = numberStr.substring(limit,numberStr.length)
+            number = parseInt(numberStr)
+            // console.log(number)
+                
+        }
+                    
         while(number>=1000)
         {   let numberStr = number.toString();
             let length = numberStr.length;

@@ -1,0 +1,25 @@
+Write a function to return the natural language pronunciation (string representation) for integers ranging from 0 to 999,999,999,999,999,999.
+​
+Signature: function say(input)
+Accepted types for 'input' are:
+1. number for values from 0 to 999999999999999  
+2. https://github.com/indutny/bn.js/ for values from 0 to 999999999999999999
+Returns a string.
+Throws invalid argument exception for inputs outside the specified range.
+​
+Examples:
+0 => zero
+1 => one
+11 => eleven
+21 => twenty-one
+101 => one hundred and one
+115 => one hundred fifteen
+221 => two hundred twenty-one
+1005 => one thousand and five
+184 => one hundred eighty-four
+21235 => twenty-one thousand two hundred thirty-five
+1_000_001 => one million and one
+​
+Limit thousands groups to million, billion, trillion.
+​
+Any values outside the given integers range and invalid types will cause an exception to be thrown.

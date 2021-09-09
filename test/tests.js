@@ -1,6 +1,6 @@
 const chai = require('chai')
 const expect = chai.expect
-
+const bn = require('bn.js')
 numbers = {0:"zero",1:"one",2:"two",3:"three",4:"four",5:"five",6:"six",7:"seven",8:"eight",9:"nine",10:"ten",11:"eleven",12:"twelve",13:"thirteen",14:"fourteen",
 15:"fifteen",16:"sixteen",17:"seventeen",18:"eighteen",19:"nineteen",20:"twenty",30:"thirty",40:"forty",50:"fifty",60:"sixty",
 70:"seventy",80:"eighty",90:"ninety",100:"hundred",1000:"thousand",1_000_000:"million",1_000_000_000:"billion",1_000_000_000_000:"trillion"}
@@ -169,6 +169,9 @@ describe("All tests for problem 1",function(){
         it("test for 333_333_333",function(){
             expect(say(333_333_333)).to.equal("three hundred thirty-three million three hundred thirty-three thousand three hundred thirty-three")
         })
+        it("test for 200_000_003",function(){
+            expect(say(200_000_003)).to.equal("two hundred million and three")
+        })
     })
 
 
@@ -196,6 +199,7 @@ describe("All tests for problem 1",function(){
         it("test for 3_033_303_303_312",function(){
             expect(say(3_033_303_303_312)).to.equal("three trillion thirty-three billion three hundred and three million three hundred and three thousand three hundred twelve")
         })
+
     })
 
     describe("tests for another input other than integer numbers",function(){
@@ -217,10 +221,85 @@ describe("All tests for problem 1",function(){
         })
 
         it("test for float integer larger than trillions",function(){
-            expect(say(1_000_000_000_000_000)).to.equal("wrong input")
+            expect(say(3_333_303_303_303_303_303)).to.equal("wrong input")
         })
+
+        it("test for float integer largersssss than trillions",function(){
+            expect(say(2_000_000_000_000_000_001)).to.equal("wrong input")
+        })
+
+        it("test for float integer largersssss than trillions",function(){
+            expect(say(1_000_000_000_000_000_000)).to.equal("wrong input")
+                        
+        })
+
+        
+        it("test for float integer largersssss than trillions",function(){
+            expect(say(new bn("2000000000000000001"))).to.equal("wrong input")
+        })
+
     })
 
+
+    describe("tests for thousand trillion ",function(){
+        it("test for 3_303_303_303_303_303",function(){
+            expect(say(new bn(3_303_303_303_303_303))).to.equal("three thousand three hundred and three trillion three hundred and three billion three hundred and three million three hundred and three thousand three hundred and three")
+        })
+        it("test for 33_303_303_303_303_303",function(){
+            let nr = new bn('33303303303303303')
+            expect(say(nr)).to.equal("thirty-three thousand three hundred and three trillion three hundred and three billion three hundred and three million three hundred and three thousand three hundred and three")
+        })
+
+        it("test for 333_303_303_303_303_303",function(){
+            let nr = new bn('333303303303303303')
+                            
+            expect(say(nr)).to.equal("three hundred thirty-three thousand three hundred and three trillion three hundred and three billion three hundred and three million three hundred and three thousand three hundred and three")
+        })
+                     
+        it("test for     999_999_999_999_999",function(){
+                    
+            let nr = new bn('999999999999999')
+                             
+            expect(say(nr)).to.equal("nine hundred ninety-nine trillion nine hundred ninety-nine billion nine hundred ninety-nine million nine hundred ninety-nine thousand nine hundred ninety-nine")
+        })
+
+        it("test for    1_999_999_999_999_999",function(){
+            let nr = new bn('1999999999999999')
+                             
+            expect(say(nr)).to.equal("one thousand nine hundred ninety-nine trillion nine hundred ninety-nine billion nine hundred ninety-nine million nine hundred ninety-nine thousand nine hundred ninety-nine")
+        })
+        it("test for    1_000_000_000_000_000",function(){
+            let nr = new bn('100000000000000')
+                             
+            expect(say(nr)).to.equal("one hundred trillion")
+        })
+
+        it("test for    1_000_000_000_000_001",function(){
+            let nr = new bn('100000000000001')
+                             
+            expect(say(nr)).to.equal("one hundred trillion and one")
+        })
+
+        it("test for    10_999_999_999_999_909",function(){
+            let nr = new bn('10999999999999909')
+                             
+            expect(say(nr)).to.equal("ten thousand nine hundred ninety-nine trillion nine hundred ninety-nine billion nine hundred ninety-nine million nine hundred ninety-nine thousand nine hundred and nine")
+        })
+
+        it("test for    999_999_999_999_999_909",function(){
+            let nr = new bn('999999999999999909')
+                             
+            expect(say(nr)).to.equal("nine hundred ninety-nine thousand nine hundred ninety-nine trillion nine hundred ninety-nine billion nine hundred ninety-nine million nine hundred ninety-nine thousand nine hundred and nine")
+        })
+
+
+
+        it("test for    109",function(){
+            let nr = new bn('109')
+            expect(say(nr)).to.equal("one hundred and nine")
+        })
+
+    })
 
 })
 
