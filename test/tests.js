@@ -301,5 +301,80 @@ describe("All tests for problem 1",function(){
 
     })
 
+    describe("BALUT TESTS", () =>{
+        it("1.test for 23", () =>{
+            expect(say(23)).to.be.equal("twenty-three")
+        })
+        it("2.test for 999_999_123_050_505_010", () =>{
+            let nr = new bn('999999123050505010')
+            expect(say(nr)).to.be.equal("nine hundred ninety-nine thousand nine hundred ninety-nine trillion one hundred twenty-three billion fifty million five hundred and five thousand ten")
+        })
+        it("3.test for -2 with throw", () =>{
+            
+            //let nr = new bn('999999123050505010')
+            expect(say(-2)).to.be.equal("wrong input")
+        })
+        it("4.test for object", () =>{
+           const car = {type:"Fiat", nr: new bn('999999123050505010'), color:"white"};
+            //let nr = new bn('999999123050505010')
+            expect(say(car.nr)).to.be.equal("nine hundred ninety-nine thousand nine hundred ninety-nine trillion one hundred twenty-three billion fifty million five hundred and five thousand ten")
+        })
+        it("5.test for NULL", () =>{
+            expect(say(null)).to.be.equal("wrong input")
+        })
+        it("6.test for undifiend", () =>{
+            expect(say(undefined)).to.be.equal("wrong input")
+        })
+        it("7.test for true", () =>{
+         
+            expect(say(true)).to.be.equal("wrong input")
+        })
+        it("8. test for 00042", () =>{
+         
+            expect(say(00042)).to.be.equal("forty two")
+        })
+        it("9. test for 0000000000000042", () =>{
+         
+            expect(say(0000000000000044)).to.be.equal("forty four")
+        })
+        it("10. test for $32", () =>{
+         
+            expect(say($32)).to.be.equal("wrong input")
+        })
+        it("11. test for date.now", () =>{
+         
+            expect(say(Date.now())).to.be.equal("wrong input")
+        })
+        it("test for -2 with throw", () =>{
+            //let nr = new bn('999999123050505010')
+            expect(say(-2)).to.throw(new TypeError('wrong input') )
+        })
+        it("Should say three hundred trillion one billion fifty million one hundred and one thousand", function () {
+            expect(say(300_001_050_101_000)).to.equal("three hundred trillion one billion fifty million one hundred and one thousand");
+        })
+        it("Should say three trillion", function () {
+            expect(say(3_000_000_000_000)).to.equal("three trillion");
+        })
+        it("Should say three trillion one thousand", function () {
+            expect(say(3_000_000_001_000)).to.equal("three trillion one thousand");
+        })
+        it("Should say three trillion fifty million one hundred and one thousand", function () {
+            expect(say(3_000_050_101_000)).to.equal("three trillion fifty million one hundred and one thousand");
+        })
+        it("Should say three hundred trillion fifty million one hundred and one thousand", function () {
+            expect(say(300_000_050_101_000)).to.equal("three hundred trillion fifty million one hundred and one thousand");
+        })
+        it("Should say three hundred trillion fifty million one hundred and one thousand", function () {
+            expect(say(300_000_001_101_000)).to.equal("three hundred trillion one million one hundred and one thousand");
+        })
+        it("Should say three hundred trillion fifty million one hundred and one thousand and one", function () {
+            expect(say(300_000_001_101_001)).to.equal("three hundred trillion one million one hundred and one thousand and one");
+        })
+        it("Should say three hundred trillion fifty million one hundred and one thousand and one", function () {
+            expect(say(300_000_000_001_001)).to.equal("three hundred trillion one thousand and one");
+        })
+
+    })
+
 })
 
